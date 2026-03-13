@@ -64,5 +64,21 @@
   transition: width 2s linear;
 }
 
-  
+  let timer;
+const loginScreen = document.getElementById('login-screen');
+const progress = document.querySelector('.scan-progress');
+const box = document.querySelector('.login-box');
+
+box.addEventListener('mousedown', () => {
+  progress.style.width = "100%";
+  timer = setTimeout(() => {
+    loginScreen.style.display = "none"; // unlock
+  }, 2000);
+});
+
+box.addEventListener('mouseup', () => {
+  clearTimeout(timer);
+  progress.style.width = "0%";
+});
+
   
